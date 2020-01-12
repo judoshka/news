@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'website/css/home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <nav>
+          <ul class="topmenu" >
+              <li><form><p align="center">О САЙТЕ</p></form>
+                <ul class="submenu">
+                <li><a>Тут очень много текста, но надо же понять, как это работает.
+                        А вообще сайт содержит только актуальные новости</a></li>
+                </ul>
+              </li>
+              <li><form><p align="center">ВЫБОР ТИПА НОВОСТИ</p></form>
+              <ul class="submenu">
+                <li><a href="">Дзюдо</a></li>
+                <li><a href="">Самбо</a></li>
+                <li><a href="">Футбол</a></li>
+                <li><a href="">Кибер-спорт</a></li>
+              </ul>
+            </li>
+            <li><div class="d1">
+                  <form>
+                  <input type="text" placeholder="Искать здесь...">
+                  <button type="submit"></button>
+                  </form>
+                </div>
+            </li>
+              <li><form><p align="center">КОНТАКТЫ</p></form>
+                  <ul class="submenu">
+                      <li><a href="https://vk.com/gasetaofme"><p>Наша группа в вк</p></a></li>
+                      <li><a>Почта: ulizkomikle@mail.ru</a></li>
+                </ul>
+            </li>
+          </ul>
+        </nav>
+    </div>
+    <div align="center">
+        <section>
+            {% for news_item in news_items %}
+            <article class="brd">
+                <h2 style="height: 25%">{{ news_item.title }}</h2>
+                <h3 style="height: 10%">{{ news_item.essay }}</h3>
+                <img src="{{ news_item.essay_img.img.url}}" style="height: 200px; width: 500px">
+                <a href="{{ news_item.source.url }}">Смотреть в источнике</a>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+</html>
